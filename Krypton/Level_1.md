@@ -26,4 +26,4 @@ ROTTEN
 ## Extra information
 In this exercise I create the following script (brute_ceasar.sh). Basically check the connection ssh for each decrypted password for all possible combinations (26). In addition you can find extra options/functions to play with the ceasar cipher. However, with normal configurations of the firewall you could have problems in a ssh server (This is not the case for krypton.labs.overthewire.org)
 
-You can find this script in my github: [Kryton_l1](https://github.com/Cristian5tarellas/Scripts/tree/main/Bash)
+You can find this script in my github: [Kryton_01](https://github.com/Cristian5tarellas/Scripts/tree/main/Bash)
