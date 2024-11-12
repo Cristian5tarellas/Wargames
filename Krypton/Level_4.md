@@ -219,7 +219,7 @@ Solution
 [+] The password for the level 5 is: CLEARTEXT
 ```
 
-## Password for next level:
+## Password for level 5:
 
 CLEARTEXT
 
