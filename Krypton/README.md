@@ -12,3 +12,4 @@ To get started with Krypton, visit the OverTheWire website, where you'll find de
 - [Level 1](https://github.com/Cristian5tarellas/Wargames/blob/main/Krypton/Level_1.md)
 - [Level 2](https://github.com/Cristian5tarellas/Wargames/blob/main/Krypton/Level_2.md)
 - [Level 3](https://github.com/Cristian5tarellas/Wargames/blob/main/Krypton/Level_3.md)
+- [Level 4](https://github.com/Cristian5tarellas/Wargames/blob/main/Krypton/Level_4.md)
