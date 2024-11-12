@@ -71,9 +71,9 @@ krypton2@bandit:/tmp/tmp.LlgCwLvN5O$ cat krypton3 | tr 'A-Z' 'O-ZA-N'
 CAESARISEASY
 ```
 
-## Password level 3
+## Password for level 3:
 
 CAESARISEASY
 
 ## Extra:
-For this problem we can used the same script than in the previous level:
+For this problem we can used the same script than in the previous level localised in my github: [Kryton_01](https://github.com/Cristian5tarellas/Scripts/blob/main/Bash/krypton_01.sh)
