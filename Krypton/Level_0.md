@@ -1,3 +1,4 @@
+# Krypton Level 0
 ## Level Info
 
 Welcome to Krypton! The first level is easy. The following string encodes the password using Base64:
@@ -16,6 +17,6 @@ In this case we have to decode the password:
 KRYPTONISGREAT    
 ```
 
-# Password next level:
+# Password for level 1:
 
 KRYPTONISGREAT
