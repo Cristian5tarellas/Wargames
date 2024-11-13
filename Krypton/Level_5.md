@@ -144,6 +144,6 @@ Solution
 RANDOM
 
 ## Extra info:
-The script used for this level is:
-If you want to check all the scripts, they are located in my repository Scripts:
+The script used for this level is: [krypton_05.sh](https://github.com/Cristian5tarellas/Scripts/blob/main/Bash/krypton_05.sh)
+If you want to check all the scripts, they are located in my repository Scripts: [Scripts_Repository](https://github.com/Cristian5tarellas/Scripts)
 
