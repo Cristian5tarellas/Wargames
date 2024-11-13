@@ -132,7 +132,7 @@ X T M B G K L H E Y Z P V R N I F W U D O S J A Q C
 L V U H Z Y P S O K J W N M F D T I C B R E A X Q G
 
 [+] The most frequent letters are: OICPIRKXL
-The  code to translate is: KEYLENGTH
+[+] The key is: KEYLENGTH
 
 Solution
 
