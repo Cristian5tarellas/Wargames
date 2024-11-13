@@ -38,9 +38,9 @@ For this exercise, the key length is 6. The password to level five is in the usu
 Have fun!
 
 ## Solution
-For this level is better to work directly in a script. In this exercise I will explain the different parts of the script XX used for this level. 
+For this level, it’s best to work directly in a script. In this exercise, I’ll explain the various parts of the script [krypton_04.sh](https://github.com/Cristian5tarellas/Scripts/blob/main/Bash/krypton_04.sh) used for this level.
 
-The first part of the script explores the data tha we have (**found1** and **found2**). We load the files and count the letters for each file and in total:
+The first part of the script analyzes the data we have (found1 and found2). We load the files and count the letters for each file, as well as in total:
 ```bash
 # Reading the files needed
 file[found1]=$(cat found1)
@@ -68,7 +68,7 @@ echo -e "\n${yellowColour}[+]${endColour} ${grayColour}The total value for each 
 echo "${file[found1]}" "${file[found2]}" | tr -d ' ' | grep -o . | sort | uniq -c | sort -nr | column
 
 ```
-The output in the screen is the next:
+The screen output is as follows:
 ```bash
 Information of the files:
 
@@ -84,7 +84,7 @@ Information of the files:
 
 ```
 
-In this level we know that we have a key length of 6 words, then we will go directly to know the letters corresponend to the key. To get the key we need to know the common letters with higher frequency in each position of the letter of the key. Once we have the most frequent letters in each possition of the letter of the key
+In this level, we know the key length is 6. We’ll begin by identifying the letters corresponding to the key. To get the key, we look for the most frequent letters in each position within blocks of length 6.
 ```bash
 #Decrypting the key
 echo -e "\n\n${greenColour}Decrypting the key${endColour}\n" 
@@ -128,7 +128,9 @@ avg_letter=[]
   pass_code+="$(echo -e $avg_letter | sort -rn | awk '{print $2}' | xargs | head -c 1)"
 done
 ```
-This section is responsible of splitting the text in blocks of length 6 (the same lenght of the key) and explore for each position in a loop from 1 to the length of the key (*shift_max*) the letter with a higher frequency. The output of this part is the following:
+This script block splits the text into blocks of 6 (*shift_max*) and loops through each position to find the letter with the highest frequency.
+
+The resulting output is as follows:
 ```bash
 Decrypting the key
 
@@ -154,7 +156,8 @@ L V U H Z Y P S O K J W N M F D T I C B R E A X Q G
 [+] The most frequent letters are: OICPIRKXL
 ```
 
-Now we have to determine the key. For this process we have to know that the letter with the maximum frequency in American English is the **E**. Then we can apply the decypher of the Vigenère method. We have a function in the script that is focused on the decryption:
+Now we determine the key. Since E is the most frequent letter in American English, we can use it for deciphering with the Vigenère method.
+We have a function in the script that is focused on the decryption:
 ```bash
 function decryption(){
   # Variables
@@ -199,7 +202,7 @@ key_codec=$(decryption "$pass_code" "E")
 
 echo -e "${greenColour}[+]${endColour} ${grayColour}The Key is:${endColour} ${greenColour}$key_codec${endColour}"
 ```
-Finally we can repeat the same process to decypher the password for the next level:
+Finally, we use this process to decrypt the password for the next level:
 ```bash
 #Decrypting the password
 password=$(cat krypton5 | tr -d ' ')
@@ -208,7 +211,7 @@ password_decrypted=$(decryption "$password" "$key_codec")
 echo -e "\n${purpleColour}Solution${endColour}\n"
 echo -e "${purpleColour}[+]${endColour} ${grayColour}The password for the level 5 is:${endColour} ${purpleColour}${password_decrypted}${endColour}"
 ```
-The result that we have in the screen:
+The result is:
 ```bash
 
 [+] The most frequent letters are: JVIOIC
