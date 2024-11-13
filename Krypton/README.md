@@ -1,4 +1,7 @@
 # Wargame: Krypton
+
+![Krypton](https://github.com/Cristian5tarellas/Wargames/blob/main/Krypton/DALLE_krypton.webp)
+
 Krypton is a wargame offered by OverTheWire that focuses on teaching cryptography and cryptanalysis through hands-on challenges. It starts with basic ciphers and progresses to more complex encryption methods, providing a practical learning experience for both beginners and those looking to enhance their cryptographic skills.
 
 The game is structured into multiple levels, each presenting a unique cryptographic puzzle. 
