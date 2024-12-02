@@ -1,16 +1,21 @@
-OverTheWire Wargames 🛡️
+# OverTheWire Wargames 🛡️
+
 Welcome to my repository dedicated to solving [Overthewire](https://overthewire.org/wargames/) Wargames, a series of challenges designed to sharpen skills in Linux, networking, and cybersecurity.
 
-🎯### About This Repository
-This repository contains my solutions, notes, and insights as I navigate through the wargames offered by OverTheWire. Each challenge is a step closer to mastering key cybersecurity concepts and practical problem-solving skills.
+### About This Repository
 
-🕹️ Wargames Included
-📌 Bandit
+7This repository contains my solutions, notes, and insights as I navigate through the wargames offered by OverTheWire. Each challenge is a step closer to mastering key cybersecurity concepts and practical problem-solving skills.
+
+## Wargames Included 🕹️ 
+
+📌 Bandit_
+
 Learn the basics of Linux and shell commands.
 
 Levels covered: 🚧 In Progress
 
 📌 **Krypto**:
+
 The Krypton wargame focuses on the fundamentals of cryptography. Players will explore the history and evolution of cryptographic techniques, from classical ciphers to more modern encryption methods. This wargame emphasizes understanding how ciphers work, how they can be broken, and the importance of secure implementations.
 
 Key Concepts Covered:
