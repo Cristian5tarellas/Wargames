@@ -26,8 +26,8 @@ Key Concepts Covered:
 🚩 Understanding the importance of key management and secure communication.
 Levels:
 
-Levels 0-6: ✅ Completed
+Levels 1-5: ✅ Completed
 
-Level 7: 🚧 In Progress
+Level 6: 🚧 In Progress
 
 🖥️ [**Folder Wargame**](https://github.com/Cristian5tarellas/Wargames/tree/main/Krypton)
