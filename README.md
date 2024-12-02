@@ -26,7 +26,7 @@ Key Concepts Covered:
 🚩 Understanding the importance of key management and secure communication.
 Levels:
 
-Levels 1-5: ✅ Completed
+Levels 0-5: ✅ Completed
 
 Level 6: 🚧 In Progress
 
