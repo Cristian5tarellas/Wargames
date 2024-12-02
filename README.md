@@ -27,6 +27,7 @@ Key Concepts Covered:
 Levels:
 
 Levels 0-6: ✅ Completed
+
 Level 7: 🚧 In Progress
 
 🖥️ [**Folder Wargame**](https://github.com/Cristian5tarellas/Wargames/tree/main/Krypton)
