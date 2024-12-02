@@ -8,7 +8,7 @@ Welcome to my repository dedicated to solving [Overthewire](https://overthewire.
 
 ## Wargames Included 🕹️ 
 
-📌 Bandit_
+📌 Bandit:
 
 Learn the basics of Linux and shell commands.
 
