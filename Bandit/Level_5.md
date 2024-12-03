@@ -1,13 +1,18 @@
-## Level Goal
+# Level 5
+
+### Level Info
 
 The password for the next level is stored in the only human-readable file in the **inhere** directory. Tip: if your terminal is messed up, try the “reset” command.
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 [ls](https://man7.org/linux/man-pages/man1/ls.1.html) , [cd](https://man7.org/linux/man-pages/man1/cd.1p.html) , [cat](https://man7.org/linux/man-pages/man1/cat.1.html) , [file](https://man7.org/linux/man-pages/man1/file.1.html) , [du](https://man7.org/linux/man-pages/man1/du.1.html) , [find](https://man7.org/linux/man-pages/man1/find.1.html)
 
 # Solution
-Exploramos los directorios y vemos los archivos que tenemos en el directorio inhere. Utilizamos el comando ***file*** para ver el tipo de archivo que tenemos. Podemos identificar que solo uno de ellos es *ASCII text*, indicando que es un archivo de texto.
+
+We explore the directories and check the files in the `inhere` directory. We use the `file` command to determine the type of each file. We can identify that only one of them is an *ASCII text*, indicating it is a text file.
+
+
 ```sh
 bandit4@bandit:~$ pwd
 /home/bandit4
@@ -43,14 +48,12 @@ bandit4@bandit:~/inhere$ file ./*
 ./-file09: data
 ```
 
-Nuestro objetivo es *file07*. Por lo tanto para hacer una linea de comando específico para esta tarea podemos filtrar el output the file con el texto *text* y abrir el archivo directamente:
+Our target is *file07*. Therefore, to create a command line specific to this task, we can filter the `file` output for the text *text* and open the file directly:
+
 ```sh
 bandit4@bandit:~/inhere$ file ./* | grep text | awk '{print $1}' FS=':' | xargs cat
 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 ```
-# Password next level:
+# Password for level 6:
 
 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
-
-## Next level:
-[[Level 5 -> 6]]
