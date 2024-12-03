@@ -13,3 +13,4 @@ The Bandit wargame from OverTheWire is a beginner-friendly resource designed to 
 - [Level 0](https://github.com/Cristian5tarellas/Wargames/blob/Bandit/Bandit/Level_0.md)
 - [Level 1](https://github.com/Cristian5tarellas/Wargames/blob/Bandit/Bandit/Level_1.md)
 - [Level 2](https://github.com/Cristian5tarellas/Wargames/blob/Bandit/Bandit/Level_2.md)
+- [Level 3](https://github.com/Cristian5tarellas/Wargames/blob/Bandit/Bandit/Level_3.md)
