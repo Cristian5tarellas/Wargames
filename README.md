@@ -24,6 +24,7 @@ Key Concepts Covered:
 🔑 Encryption and decryption techniques.
 🔍 Analyzing cipher weaknesses.
 🚩 Understanding the importance of key management and secure communication.
+
 Levels:
 
 Levels 0-5: ✅ Completed
