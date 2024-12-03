@@ -14,7 +14,7 @@ Learn the basics of Linux and shell commands.
 
 Levels covered: 🚧 In Progress
 
-📌 **Krypto**:
+📌 **Krypton**:
 
 The Krypton wargame focuses on the fundamentals of cryptography. Players will explore the history and evolution of cryptographic techniques, from classical ciphers to more modern encryption methods. This wargame emphasizes understanding how ciphers work, how they can be broken, and the importance of secure implementations.
 
