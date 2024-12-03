@@ -10,4 +10,4 @@ The Bandit wargame from OverTheWire is a beginner-friendly resource designed to 
 
 **The Solutions for the levels are the following:**
 
-
+[Level 0](https://github.com/Cristian5tarellas/Wargames/blob/Bandit/Bandit/Level_0.md)
