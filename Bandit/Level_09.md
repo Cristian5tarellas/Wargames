@@ -1,17 +1,20 @@
-## Level Goal
+# Level 9
+
+### Level INfo
 
 The password for the next level is stored in the file **data.txt** and is the only line of text that occurs only once
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-## Helpful Reading Material
+### Helpful Reading Material
 
 - [Piping and Redirection](https://ryanstutorials.net/linuxtutorial/piping.php)
 
 # Solution
-Para este caso utilizaremos funciones como ***uniq***. En su ayuda podemos ver diferentes parámetros:
+For this case, we will use functions like ***uniq***. In its help, we can see different parameters:
+
 ```sh
 Mandatory arguments to long options are mandatory for short options too.
 
@@ -32,17 +35,15 @@ Mandatory arguments to long options are mandatory for short options too.
   -w, --check-chars=N   compare no more than N characters in lines
 ```
 
-Para este caso, utilizaremos el parámetro ***-u*** (only print unique lines). 
+For this case, we will use the ***-u*** parameter (only print unique lines).
 
-**IMPORTANTE:** Funciona con el comando ***sort***.
+**IMPORTANT:** It works with the ***sort*** command.
+
 ```sh
 bandit8@bandit:~$ sort data.txt | uniq -u
 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
 ```
 
-# Password next level:
+# Password for level 10:
 
 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
-
-## Next Level:
-[[Level 9 -> 10]]
