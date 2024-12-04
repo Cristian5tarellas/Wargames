@@ -1,13 +1,17 @@
-## Level Goal
+# Level 19
 
-The password for the next level is stored in a file **readme** in the homedirectory. Unfortunately, someone has modified **.bashrc** to log you out when you log in with SSH.
+### Level Info
 
-## Commands you may need to solve this level
+The password for the next level is stored in a file called readme in the home directory. Unfortunately, someone has modified the file .bashrc to log you out when you log in with SSH.
+
+### Commands you may need to solve this level
 
 ssh, ls, cat
 
 # Solution
-Con ssh podemos inyectar comandos directamente al servidor. Esto hace que se ejecute los comandos inyectados antes de usar el archivo .bashrc 
+
+With SSH, we can inject commands directly into the server. This causes the injected commands to be executed before the .bashrc file is used.
+
 ```sh
 ❯ sshpass -p 'x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO' ssh bandit18@bandit.labs.overthewire.org -p 2220 bash
                          _                     _ _ _   
@@ -23,7 +27,9 @@ Con ssh podemos inyectar comandos directamente al servidor. Esto hace que se eje
 whoami
 bandit18
 ```
-Teniendo acceso en este modo podemos encontrar la contraseña del siguiente nivel según los objetivos:
+
+Having access in this way, we can find the password for the next level based on the objectives:
+
 ```sh
 pwd
 /home/bandit18
@@ -33,10 +39,7 @@ cat readme
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 ```
 
-# Password next level:
+# Password for level 20:
 
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
-
-## Next Level:
-[[Level 19 -> 20]]
