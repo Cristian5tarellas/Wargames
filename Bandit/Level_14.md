@@ -30,6 +30,6 @@ MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
 
 **Comment**: If a public key is generated from our private key, we can place it in the **.ssh** folder in a file called **authorized_keys**. However, to do this, we need access to and the ability to write to the **.ssh** folder of the user on the server we want to connect to.
 
-# Password next level:
+# Password for level 15:
 
 MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
