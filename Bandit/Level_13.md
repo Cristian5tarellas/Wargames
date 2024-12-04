@@ -1,24 +1,26 @@
-## Level Goal
+# Level 13
+
+### Level Info
 
 The password for the next level is stored in the file **data.txt**, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
 
-## Helpful Reading Material
+### Helpful Reading Material
 
 - [Hex dump on Wikipedia](https://en.wikipedia.org/wiki/Hex_dump)
 
 # Solution
 
-**Nota**: nos hemos copiado el archivo en nuestro pc para no generar archivos en el servidor y no tener que borrarlo.
+**Note**: We have copied the file to our PC to avoid creating files on the server and having to delete them.
 
-En este nivel tendremos 2 partes. La primera como tratar archivos hexadecimales, y la segunda como ir descomprimiendo de manera automatica.
+This level has two parts. The first teaches us how to work with hexadecimal files, and the second teaches us how to automatically decompress files.
 
-## S1) Archivos hexadecimales:
+## S1) Hexadecimal Files:
 
-Para trabajar con archivos hexadecimales usaremos el comando ***xxd***. 
+To work with hexadecimal files, we will use the ***xxd*** command.
 
 ```sh
 ❯ cat data.txt | xxd -r | sponge data.txt
@@ -26,12 +28,13 @@ Para trabajar con archivos hexadecimales usaremos el comando ***xxd***.
 ❯ file data.txt
 data.txt: gzip compressed data, was "data2.bin", last modified: Wed Jul 17 15:57:06 2024, max compression, from Unix, original size modulo 2^32 577
 ```
-Leemos el archivo hexadecimal y lo traducimos sobreescibiendolo en el mismo archivo con la funcion ***sponge***. Con el comando ***xxd*** usando el parámetro ***-r*** traducimos del hexadecimal.
+We read the hexadecimal file and translated it by overwriting it in the same file using the ***sponge*** function. With the ***xxd*** command and the ***-r*** parameter, we translate from hexadecimal.
 
-Como podemos ver temos un archivo *gzip*.
+As we can see, we have a *gzip* file.
 
-## S2) Decomprimir de manera automática
-Para esta parte haremos un script que identifique el archivo a descomprimir y vaya descomprimiendo recursivamente hasta que obtenga el archivo de texto que contenga la contraseña.
+## S2) Automatic Decompression
+For this part, we will create a script that identifies the file to decompress and recursively decompresses it until it retrieves the text file containing the password.
+
 **Script:**
 ```sh
 #!/bin/bash
@@ -53,7 +56,9 @@ echo -e "\n [+] The file with the password is ${file2deccom}\n"
 echo -e "\n The password is: $(cat $file2deccom | awk 'NF{print $NF}')\n"
 
 ```
-De este modo determinamos el password para este caso.
+
+In this way, we determine the password for this case.
+
 ```sh
 ❯ ./descompresor_file.sh
 data.txt: gzip compressed data, was "data2.bin", last modified: Wed Jul 17 15:57:06 2024, max compression, from Unix, original size modulo 2^32 577
@@ -89,6 +94,3 @@ data8.bin: gzip compressed data, was "data9.bin", last modified: Wed Jul 17 15:5
 # Password next level:
 
 FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
-
-## Next level:
-[[Level 13 -> 14]]
