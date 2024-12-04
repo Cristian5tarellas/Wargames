@@ -1,19 +1,24 @@
-## Level Goal
+# Level 17
+
+### Level Info
 
 The credentials for the next level can be retrieved by submitting the password of the current level to **a port on localhost in the range 31000 to 32000**. First find out which of these ports have a server listening on them. Then find out which of those speak SSL/TLS and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
 
 **Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage.**
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 ssh, telnet, nc, ncat, socat, openssl, s_client, nmap, netstat, ss
 
-## Helpful Reading Material
+### Helpful Reading Material
 
 - [Port scanner on Wikipedia](https://en.wikipedia.org/wiki/Port_scanner)
+
 # Solution
-Existe una ruta del servidor si los puertos estan abiertos aunque no puedes acceder a ellos. Sin embargo si que se puede enviar cadena vacias a dichas rutas:
-- La ruta: **/dev/tcp/ip_address/port
+
+The server has a route if the ports are open, even if you cannot directly access them. However, it is possible to send empty strings to those routes:
+- The route: **/dev/tcp/ip_address/port**
+
 ```sh
 bandit16@bandit:~$ echo ' ' > /dev/tcp/127.0.0.1/22
 bandit16@bandit:~$ echo $?
@@ -25,7 +30,8 @@ bandit16@bandit:~$ echo $?
 1                                                ### CÓDIGO DE ESTADO ERRONEO
 ```
 
-Por tanto, podemos encontrar los puertos abiertos viendo cuales no tienen error. Para ello haremos un script (***PortScan_vC.sh***) que determine que puertos (entre un rango de valores) están abiertos y después determinaremos cual de esos puertos son ssl:
+Therefore, we can find the open ports by checking which ones do not return an error. To do this, we will create a script (***PortScan_vC.sh***) that determines which ports (within a specified range) are open, and then we will identify which of those ports are SSL:
+
 ```sh
 #!/bin/bash
 # Scanning and determining the ssl ports.
@@ -86,7 +92,8 @@ echo -e "\n${greenColour}[+] The ssl ports are:${endColour} ${port_ssl[@]}\n"
 
 ```
 
-El output:
+The output:
+
 ```sh
 Select the range of port to be scanned:
 
@@ -101,7 +108,9 @@ Last port:
 [+] The ssl ports are: 31518 31790
 
 ```
-Solo tenemos que probar los puertos ssl cual nos da el siguiente paso para avanzar usando la contraseña de bandit16:
+
+We only need to test the SSL ports to find the one that leads to the next step, using the password for bandit16:
+
 ```sh
 bandit16@bandit:/tmp/tmp.5qVqpr4Awa$ ncat --ssl 127.0.0.1 31518
 kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
@@ -141,8 +150,11 @@ vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
 -----END RSA PRIVATE KEY-----
 
 ```
-Por lo tanto guardamos la key en un archivo y lo utilizamos para entrar en bandit17. 
-**OJO**: Si no cambias los permisos del archivo:
+
+Therefore, we save the key in a file and use it to log into bandit17.
+
+**NOTE**: If you don't change the file permissions:
+
 ```sh
 bandit16@bandit:/tmp/tmp.5qVqpr4Awa$ ssh -i id_rsa.key bandit17@localhost
 The authenticity of host 'localhost (127.0.0.1)' can't be established.
@@ -163,21 +175,19 @@ Failed to add the host to the list of known hosts (/home/bandit16/.ssh/known_hos
 Permissions 0664 for 'id_rsa.key' are too open.
 ```
 
-Por lo tanto:
+Therefore:
+
 ```sh
 bandit16@bandit:/tmp/tmp.5qVqpr4Awa$ chmod 600 id_rsa.key 
 bandit16@bandit:/tmp/tmp.5qVqpr4Awa$ ssh -i id_rsa.key bandit17@localhost -p 2220
 ```
 
-Ahora ya solo buscamos la contraseña en el directorio de /etc/bandit_pass:
+Now we simply search for the password in the /etc/bandit_pass directory:
 ```sh
 bandit17@bandit:~$ cat /etc/bandit_pass/bandit17
 EReVavePLFHtFlFsjn3hyzMlvSuSAcRD
 ```
 
-# Password next level:
+# Password for level 18:
 
 EReVavePLFHtFlFsjn3hyzMlvSuSAcRD
-
-## Next Level:
-[[Level 17 -> 18]]
