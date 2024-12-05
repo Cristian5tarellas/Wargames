@@ -4,7 +4,7 @@ Welcome to my repository dedicated to solving [Overthewire](https://overthewire.
 
 ### About This Repository
 
-7This repository contains my solutions, notes, and insights as I navigate through the wargames offered by OverTheWire. Each challenge is a step closer to mastering key cybersecurity concepts and practical problem-solving skills.
+This repository contains my solutions, notes, and insights as I navigate through the wargames offered by OverTheWire. Each challenge is a step closer to mastering key cybersecurity concepts and practical problem-solving skills.
 
 ## Wargames Included 🕹️ 
 
