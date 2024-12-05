@@ -56,12 +56,14 @@ In the last line, it copies the password for bandit23 into a file, which is plac
 Therefore:
 
 ```sh
-#AVERIGUAMOS EL VALOR DE MY TARGE YA QUE SABEMOS EL VALOR DE MYNAME
+#AS WE KNOW THE VALUE OF MYNAME, WE FIND OUT THE VALUE OF MYTARGET
 bandit22@bandit:/usr/bin$ mytarget=$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
-#COMPROBAMOS EL RESULTADO
+
+#WE CHECK THE RESULT
 bandit22@bandit:/usr/bin$ echo $mytarget
 8ca319486bfbbc3663ea0fbe81326349
-#VEMOS LOS PERMISOS DEL ARCHIVO CREADO Y LO LEEMOS
+
+#WE OBSERVE THE FILE PERMISSIONS AND WE READ IT
 bandit22@bandit:/usr/bin$ ls -l /tmp/$mytarget
 -rw-rw-r-- 1 bandit23 bandit23 33 Aug 29 14:17 /tmp/8ca319486bfbbc3663ea0fbe81326349
 bandit22@bandit:/usr/bin$ cat /tmp/$mytarget
