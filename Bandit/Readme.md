@@ -1,6 +1,8 @@
 # Wargame: Bandit
 
-<img src="Image.webp" alt="Bandit_Wargame" width="900"/>
+<div style="text-align: center;">
+  <img src="Image.webp" alt="Bandit_Wargame" width="900"/>
+</div>
 
 The Bandit wargame from OverTheWire is a beginner-friendly resource designed to introduce players to the basics of Linux and command-line tools. It consists of a series of challenges (or "levels") that progressively teach key skills like file manipulation, permissions, SSH, and more. Players learn how to navigate a Linux environment, analyze files, and use common commands to solve problems.
 
