@@ -135,7 +135,7 @@ code  README.md
 
 To switch from one branch to another, we use the command ***git checkout*** *branch_name*.
 
-Finally, if we read the README we can get the password:
+Finally, if we read the README file we can get the password:
 
 ```sh
 bandit29@bandit:/tmp/tmp.a7OVYRQX8V/repo$ cat README.md 
