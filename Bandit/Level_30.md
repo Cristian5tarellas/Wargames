@@ -1,15 +1,19 @@
-## Level Goal
+# Level 30
+
+### Level Info
 
 There is a git repository at `ssh://bandit29-git@localhost/home/bandit29-git/repo` via the port `2220`. The password for the user `bandit29-git` is the same as for the user `bandit29`.
 
 Clone the repository and find the password for the next level.
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 git
 
 # Solution
-Empezamos con el procedimiento estándar para clonar el repositorio y ver la información que contiene:
+
+We begin with the standard procedure to clone the repository and check the information it contains:
+
 ```sh
 bandit29@bandit:~$ dir_temp=$(mktemp -d)
 bandit29@bandit:~$ cd $dir_temp
@@ -53,7 +57,9 @@ Some notes for bandit30 of bandit.
 - password: <no passwords in production!>
 ```
 
-En este caso no tenemos info de password. Checkeamos si tiene commits:
+In this case, there is no password information. We check if there are any commits:
+
+
 ```sh
 bandit29@bandit:/tmp/tmp.a7OVYRQX8V/repo$ git log
 commit efa5bd803f8335e5e5e9da5c4c7c876aefc9f8b4 (HEAD -> master, origin/master, origin/HEAD)
@@ -109,7 +115,8 @@ index 0000000..2da2f39
 +
 ```
 
-Simplemente los commits son la creacion del archivo y el cambio de usuario. El password esta in production. Normalmente en github la *rama* master pones todo el trabajo final y comprobado. De este modo puedes tener diferentes *ramas* de trabajo. Para comprobarlo usamot ***git branch***. En este caso usaremos el parámetro **-a** para ver todas las ramas:
+The commits only include the creation of the file and a user change. The password is in production. Typically, in GitHub, the *master branch* contains all the final and tested work, while you can have different *branches* for ongoing tasks. To check the branches, we use ***git branch***. In this case, we use the **-a** parameter to view all the branches:
+
 ```sh
 bandit29@bandit:/tmp/tmp.a7OVYRQX8V/repo$ git branch -a
   a
@@ -125,9 +132,11 @@ Switched to a new branch 'dev'
 bandit29@bandit:/tmp/tmp.a7OVYRQX8V/repo$ ls
 code  README.md
 ```
-Para cambiar de una rama a otra usamos el comando ***git checkout*** *nombre_rama*.
 
-Finalmente si leemos el README:
+To switch from one branch to another, we use the command ***git checkout*** *branch_name*.
+
+Finally, if we read the README we can get the password:
+
 ```sh
 bandit29@bandit:/tmp/tmp.a7OVYRQX8V/repo$ cat README.md 
 # Bandit Notes
@@ -139,9 +148,6 @@ Some notes for bandit30 of bandit.
 - password: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
 ```
 
-# Password next level:
+# Password for level 31:
 
 qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
-
-## Next level:
-[[Level 30 -> 31]]
