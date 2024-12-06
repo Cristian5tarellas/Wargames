@@ -1,15 +1,19 @@
-## Level Goal
+# Level 32
+
+### Level Info
 
 There is a git repository at `ssh://bandit31-git@localhost/home/bandit31-git/repo` via the port `2220`. The password for the user `bandit31-git` is the same as for the user `bandit31`.
 
 Clone the repository and find the password for the next level.
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 git
 
 # Solution
-Procedemos a clonar el repositorio:
+
+First we clone the repository:
+
 ```sh
 bandit31@bandit:~$ dir_temp=$(mktemp -d)
 bandit31@bandit:~$ cd $dir_temp
@@ -49,13 +53,16 @@ Details:
     Branch: master
 ```
 
-Nos pide que pusheemos un archivo que se llame *key.txt* y contenga la frase `May I come in?`. Para ello primero creamos el archivo:
+We are asked to push a file called *key.txt* containing the phrase `May I come in?`. To do this, we first create the file:
+
 ```sh
 bandit31@bandit:/tmp/tmp.SPas68UMEl/repo$ echo "May I come in?">key.txt
 bandit31@bandit:/tmp/tmp.SPas68UMEl/repo$ cat key.txt 
 May I come in?
 ```
-Hay que pushearlo a la rama master. Para ello, primero añadimos el archivo al indice de github, luego hacemos un commit de las modificaciones y finalmente lo pusheamos a la rama master.
+
+We need to push it to the master branch. To do this, we first add the file to the Git index, then commit the changes, and finally push it to the master branch.
+
 ```sh
 bandit31@bandit:/tmp/tmp.SPas68UMEl/repo$ ls
 key.txt  README.md
@@ -66,7 +73,9 @@ bandit31@bandit:/tmp/tmp.SPas68UMEl/repo$ git commit -m "Nuevo archivo"
  create mode 100644 key.txt
 bandit31@bandit:/tmp/tmp.SPas68UMEl/repo$ git push -u origin master
 ```
-Al hacerlo obtenemos el pass:
+
+After doing this, we obtain the password:
+
 ```sh
 The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
 ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
@@ -105,9 +114,6 @@ To ssh://localhost:2220/home/bandit31-git/repo
 error: failed to push some refs to 'ssh://localhost:2220/home/bandit31-git/repo'
 ```
 
-# Password next level:
+# Password for level 33:
 
 3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K
-
-## Next level:
-[[Level 32 -> 33]]
