@@ -1,15 +1,19 @@
-## Level Goal
+# Level 31
+
+### Level Info
 
 There is a git repository at `ssh://bandit30-git@localhost/home/bandit30-git/repo` via the port `2220`. The password for the user `bandit30-git` is the same as for the user `bandit30`.
 
 Clone the repository and find the password for the next level.
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 git
 
 # Solution
-Realizamos el procedimiento de clonar el repositorio:
+
+First we clone the repository:
+
 ```sh
 bandit30@bandit:~$ dir_temp=$(mktemp -d)
 bandit30@bandit:~$ cd $dir_temp
@@ -46,7 +50,8 @@ just an epmty file... muahaha
 just an epmty file... muahaha
 ```
 
-Comprobamos registros:
+we check the commits:
+
 ```sh
 bandit30@bandit:/tmp/tmp.jqjsFUwrZy/repo$ git log
 commit 60410f42e05023128098dc1f6991c75e6ae02e47 (HEAD -> master, origin/master, origin/HEAD)
@@ -55,20 +60,25 @@ Date:   Wed Jul 17 15:57:34 2024 +0000
 
     initial commit of README.md
 ```
-Solo tenemos la creación del archivo. Comprobamos ramas:
+
+We only have the file creation. Then, let's check the branches:
+
 ```sh
 bandit30@bandit:/tmp/tmp.jqjsFUwrZy/repo$ git branch -a
 * master
   remotes/origin/HEAD -> origin/master
   remotes/origin/master
 ```
-Solo tenemos la rama del master, no hay nada extra. Qué nos queda?
 
-Podemos revisar las etiquetas (tags). 
+We only have the master branch, and there is nothing extra. What do we have left?
+
+We can check the tags.
+
 ### Tags:
 Like most VCSs, Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (`v1.0`, `v2.0` and so on). In this section, you’ll learn how to list existing tags, how to create and delete tags, and what the different types of tags are.
 
-Para listar los *tags* podemos usar ***git tag***:
+To list the *tags*, we can use ***git tag***:
+
 ```sh
 bandit30@bandit:/tmp/tmp.jqjsFUwrZy/repo$ git tag
 secret
@@ -76,9 +86,6 @@ bandit30@bandit:/tmp/tmp.jqjsFUwrZy/repo$ git show secret
 fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy
 ```
 
-# Password next level:
+# Password for level 32:
 
 fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy
-
-## Next Level:
-[[Level 31 -> 32]]
