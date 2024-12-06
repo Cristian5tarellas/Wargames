@@ -1,15 +1,19 @@
-## Level Goal
+# Level 29
+
+### Level Goal
 
 There is a git repository at `ssh://bandit28-git@localhost/home/bandit28-git/repo` via the port `2220`. The password for the user `bandit28-git` is the same as for the user `bandit28`.
 
 Clone the repository and find the password for the next level.
 
-## Commands you may need to solve this level
+### Commands you may need to solve this level
 
 git
 
 # Solution
-Repitiendo el mismo proceso que en el nivel anterior conseguimos lo siguiente:
+
+By repeating the same process as in the previous level, we obtain the following:
+
 ```sh
 #CREAMOS DIRECCION TEMPORAL
 bandit28@bandit:~$ dir_temp=$(mktemp -d)
@@ -59,7 +63,8 @@ Some notes for level29 of bandit.
 
 ```
 
-En este caso en el README no tenemos la contraseña, sino que contiene valor xxxxxxx. Lo que podemos hacer es comprobar el registro de los cambios ("commit"), con ***git log***:
+In this case, the `README` file does not contain the password; instead, it holds the value `xxxxxxx`. What we can do is check the commit history using ***git log***:
+
 ```sh
 bandit28@bandit:/tmp/tmp.kZtnEbX94A/repo$ git log
 commit 8cbd1e08d1879415541ba19ddee3579e80e3f61a (HEAD -> master, origin/master, origin/HEAD)
@@ -80,12 +85,14 @@ Date:   Wed Jul 17 15:57:30 2024 +0000
 
     initial commit of README.md
 ```
-Tenemos tres commits:
-- Inicial: Añaden el README
-- Segundo: Añaden datos
-- Tercer: fix info leak
 
-Para ver los cambios hechos en cada commit podemos hacer un ***git show*** con el id del commit que queremos ver:
+There are three commits:
+- First: Adds the README
+- Second: Adds data
+- Third: Fixes an info leak
+
+To see the changes made in each commit, we can use ***git show*** with the commit ID we want to view:
+
 ```sh
 # COMMIT INITIAL: AÑADEN EL README
 bandit28@bandit:/tmp/tmp.kZtnEbX94A/repo$ git show 5f7265568c7b503b276ec20f677b68c92b43b712
@@ -147,11 +154,8 @@ index d4e3b74..5c6457b 100644
 +- password: xxxxxxxxxx
 ```
 
-Podemos ver que en el segundo commit añaden el password y en el ultimo lo sustituyen por xxxxx. En ambos commits podemos ver la contraseña de bandit29.
+We can see that in the second commit, the password is added, and in the last one, it is replaced with `xxxxx`. In both commits, we can find the password for bandit29.
 
-# Password next level:
+# Password for level 30:
 
 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
-
-## Next level:
-[[Level 29 -> 30]]
