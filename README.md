@@ -8,11 +8,29 @@ This repository contains my solutions, notes, and insights as I navigate through
 
 ## Wargames Included 🕹️ 
 
-📌 Bandit:
+📌 **Bandit**:
 
-Learn the basics of Linux and shell commands.
+The Bandit wargame on OverTheWire is a series of Linux-based challenges designed to teach the basics of hacking, security, and system administration through a series of progressively difficult levels, where players must use command-line tools, cryptography, and other skills to find passwords hidden in various files and systems.
 
-Levels covered: 🚧 In Progress
+Some Key Concepts Covered:
+
+- 🔐 **File Permissions and Ownership**  
+- 🛠️ **Basic Linux Commands**  
+- 🔑 **SSH Authentication and Keys**  
+- 🔄 **Redirection and Pipelines**  
+- 🖥️ **Scripting**  
+- 🌐 **Networking and Ports**  
+- 🎯 **Brute Force Attacks**  
+- 🛡️ **Privilege Escalation**  
+- 🧩 **Reverse Engineering and Debugging**  
+
+***Levels***:
+
+Levels 0-33: ✅ Completed
+
+🖥️ [**Folder Wargame**](https://github.com/Cristian5tarellas/Wargames/tree/main/Bandit)
+
+-----------------------------------------------------
 
 📌 **Krypton**:
 
@@ -20,12 +38,12 @@ The Krypton wargame focuses on the fundamentals of cryptography. Players will ex
 
 Key Concepts Covered:
 
-🧩 Classical ciphers (e.g., Caesar cipher, Vigenère cipher).
-🔑 Encryption and decryption techniques.
-🔍 Analyzing cipher weaknesses.
-🚩 Understanding the importance of key management and secure communication.
+- 🧩 Classical ciphers (e.g., Caesar cipher, Vigenère cipher).
+- 🔑 Encryption and decryption techniques.
+- 🔍 Analyzing cipher weaknesses.
+- 🚩 Understanding the importance of key management and secure communication.
 
-Levels:
+***Levels***:
 
 Levels 0-5: ✅ Completed
 
