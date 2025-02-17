@@ -8,7 +8,7 @@ This repository contains my solutions, notes, and insights as I navigate through
 
 ## Wargames Included 🕹️ 
 
-📌 **Bandit**:
+###  📌 **Bandit**:
 
 The Bandit wargame on OverTheWire is a series of Linux-based challenges designed to teach the basics of hacking, security, and system administration through a series of progressively difficult levels, where players must use command-line tools, cryptography, and other skills to find passwords hidden in various files and systems.
 
@@ -32,7 +32,7 @@ Levels 0-33: ✅ Completed
 
 -----------------------------------------------------
 
-📌 **Krypton**:
+### 📌 **Krypton**:
 
 The Krypton wargame focuses on the fundamentals of cryptography. Players will explore the history and evolution of cryptographic techniques, from classical ciphers to more modern encryption methods. This wargame emphasizes understanding how ciphers work, how they can be broken, and the importance of secure implementations.
 
