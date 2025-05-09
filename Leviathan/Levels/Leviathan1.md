@@ -1,6 +1,17 @@
 # Leviathan Level 1 → Level 2
 
-The first point is to explore the current directory:
+
+You can watch the walkthrough for this level here:  
+[![YouTube](https://img.shields.io/badge/YouTube-Walkthrough-red?logo=youtube)](https://www.youtube.com/watch?v=6v0Bb1ufI-8)
+
+> This video shows my full process solving (in Spanish) Level 1 from scratch, including the obstacles and mistakes I faced along the way. Some walkthroughs might be longer or shorter depending on the complexity of the level or how quickly I find the solution.
+
+---
+
+## 🔍 Solution
+
+We begin by inspecting the current directory:
+
 ```bash
 leviathan1@gibson:~$ ll
 total 36
@@ -11,17 +22,23 @@ drwxr-xr-x 83 root       root        4096 Sep 19 07:09 ../
 -r-sr-x---  1 leviathan2 leviathan1 15080 Sep 19 07:07 check*
 -rw-r--r--  1 root       root         807 Mar 31  2024 .profile
 ```
-There is a file called `check`. We can inspect this file:
+We find a file named `check`. Let's inspect its properties:
+
 ```bash
 leviathan1@gibson:~$ file check
 check: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=115df4ab9cca6c946a5c068b6c9c103f38a6e73b, for GNU/Linux 3.2.0, not stripped
 ```
 **Key observations:**
-- It is an executable.
-- It has SUID permissions (important because it allows execution as the file owner, in this case, Leviathan2)
-- It is dynamically linked, meaning it loads libraries during execution.
+- ✅ It's an executable binary.  
+- 🔐 It has **SUID permissions** (runs with `leviathan2` privileges).  
+- 🔗 It's dynamically linked.
 
-Now that we have an initial understanding of the situation, we can explore what this executable does.
+---
+
+### ▶️ Testing the Binary
+
+When executed, the program asks for a password:
+
 ```bash
 leviathan1@gibson:~$ ./check 
 password: Halo
@@ -37,9 +54,8 @@ l
 Wrong password, Good Bye ...
 leviathan1@gibson:~$ 
 ```
-We can see that the executable prompts for a password. If the input is incorrect, it returns `Wrong password, Good Bye ...`
+Let's look for readable strings inside:
 
-At this point, we can check for readable content whithin the file:
 ```bash
 leviathan1@gibson:~$ strings check
 td8 
@@ -178,26 +194,13 @@ _init
 .comment
 ```
 
-### Interesting findings:
+We see:
+- The prompt `password:`  
+- The string `/bin/sh`, suggesting it spawns a shell  
+- Use of `strcmp`, meaning it compares your input to a hardcoded string  
 
-```bash
-password: 
-/bin/sh
-Wrong password, Good Bye ...
-;*2$"0
-```
-This suggests that after entering the correct password, the binary executes a shell. Since it has SUID permissions, the shell will be opened as Leviathan2.
+Since it's dynamically linked, we can trace the library calls:
 
-Additionally, we see:
-```bash
-printf
-setreuid
-strcmp
-geteuid
-```
-Among these, `strcmp` is particularly interesting. In C, strcmp() is a built-in library function used to compare two strings lexicographically. It takes two strings (array of characters) as arguments, compares these two strings lexicographically, and then returns 0,1, or -1 as the result.
-
-Since the program is dynamically linked, it loads libraries during execution. We can use `ltrace` to analyze its behavior when an incorrect password is entered:
 ```bash
 leviathan1@gibson:~$ ltrace ./check 
 __libc_start_main(0x80490ed, 1, 0xffffd394, 0 <unfinished ...>
@@ -212,7 +215,14 @@ puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...
 +++ exited (status 0) +++
 ```
 
-We see that the program compares only the first three characters of the input with the correct password (`sex`). We know the password right now. However, you can exploit this by entering a longer word that begins with sex, which will still be accepted.
+🧠 This shows the program only compares the **first 3 characters** with the string `"sex"`.
+
+---
+
+### 🛠️ Exploiting the Program
+
+We enter any word starting with `"sex"`, for example:
+
 ```bash
 leviathan1@gibson:~$ ./check
 password: sexologie
@@ -224,7 +234,7 @@ NsN1HwFoyN
 ```
 By entering `sexologie`, we gain shell access as Leviathan2. From here, we can retrieve the password for the next level.
 
-## Password for next level
+## Password for Leviathan 2
 
 NsN1HwFoyN
 
