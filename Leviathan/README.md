@@ -9,3 +9,5 @@ To start with Leviathan, visit the OverTheWire website, where you'll find detail
 [Wargame: Leviathan](https://overthewire.org/wargames/leviathan/)
 
 ## The Solutions for the levels are the following:
+
+- [Level 0](Levels/Leviathan0.md)
