@@ -58,17 +58,12 @@ Leviathan is a beginner-friendly wargame designed to teach basic privilege escal
 
 ***Key Concepts Covered:***
 
-🔐 Linux File and Directory Permissions
-
-📂 Hidden Files and Access Rights
-
-⚙️ Analyzing Simple Executable Binaries
-
-🧠 Logical Reasoning in Program Behavior
-
-⛓️ Basic Privilege Escalation
-
-🔍 String and File Content Analysis
+- 🔐 Linux File and Directory Permissions
+- 📂 Hidden Files and Access Rights
+- ⚙️ Analyzing Simple Executable Binaries
+- 🧠 Logical Reasoning in Program Behavior
+- ⛓️ Basic Privilege Escalation
+- 🔍 String and File Content Analysis
 
 ***Levels:***
 
