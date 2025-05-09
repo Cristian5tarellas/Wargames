@@ -9,7 +9,7 @@ We can access the **Leviathan0** account using the connection details provided i
 
 ---
 
-## 🔍 Initial Inspection
+## 🔍 Solution
 
 After logging in, we list the contents of the home directory:
 
@@ -44,8 +44,7 @@ leviathan0@gibson:~/.backup$ cat bookmarks.html | grep "password"
 
 We can see the password: 3QJ3TgzHDq
 
-## Solution
-Password for leviathan1:
+## Password for Leviathan 1:
 
 3QJ3TgzHDq
 
