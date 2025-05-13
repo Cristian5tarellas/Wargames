@@ -1,4 +1,4 @@
-# Leviathan Level 1 → Level 2
+# Leviathan Level 1
 
 
 You can watch the walkthrough for this level here:  
