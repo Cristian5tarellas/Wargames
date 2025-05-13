@@ -1,4 +1,4 @@
-# Leviathan Level 3 → Level 
+# Leviathan Level 3 → Level 4
 
 You can watch the walkthrough for this level here:  
 [![YouTube](https://img.shields.io/badge/YouTube-Walkthrough-red?logo=youtube)](https://www.youtube.com/watch?v=YcL3ShoNBKs)
