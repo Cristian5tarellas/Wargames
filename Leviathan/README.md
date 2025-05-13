@@ -14,3 +14,4 @@ To start with Leviathan, visit the OverTheWire website, where you'll find detail
 - [Level 1](Levels/Leviathan1.md)
 - [Level 2](Levels/Leviathan2.md)
 - [Level 3](Levels/Leviathan3.md)
+- [Level 4](Levels/Leviathan4.md)
