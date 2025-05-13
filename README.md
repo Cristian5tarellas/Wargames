@@ -67,8 +67,6 @@ Leviathan is a beginner-friendly wargame designed to teach basic privilege escal
 
 ***Levels:***
 
-Levels 0: ✅ Completed 
-
-Level 1-7: 🚧 In Progress
+Levels 0-6: ✅ Completed 
 
 🖥️ [**Folder Wargame**](https://github.com/Cristian5tarellas/Wargames/tree/main/Leviathan)
