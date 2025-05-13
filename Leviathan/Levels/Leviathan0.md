@@ -1,4 +1,4 @@
-# Leviathan Level 0 → Level 1
+# Leviathan Level 0
 
 You can watch the walkthrough for this level here:  
 [![YouTube](https://img.shields.io/badge/YouTube-Walkthrough-red?logo=youtube)](https://www.youtube.com/watch?v=lkYtVl5rXjg&ab_channel=Gabahack)
