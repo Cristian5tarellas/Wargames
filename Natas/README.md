@@ -20,4 +20,4 @@ To start with Natas, visit the OverTheWire website, where each level comes with 
 
 | [Level 0](Levels/Natas0.md) | [Level 1](Levels/Natas1.md) | [Level 2](Levels/Natas2.md) | [Level 3](Levels/Natas3.md) | [Level 4](Levels/Natas4.md) | [Level 5](Levels/Natas5.md)
 | --- | --- | --- | --- | --- | --- |
-| [Level 6](Levels/Natas6.md) | [Level 7](Levels/Natas7.md) | [Level 8]Levels/Natas8.md) | [Level 9](Levels/Natas9.md) | [Level --]() | [Level --]()
+| [Level 6](Levels/Natas6.md) | [Level 7](Levels/Natas7.md) | [Level 8](Levels/Natas8.md) | [Level 9](Levels/Natas9.md) | [Level --]() | [Level --]()
