@@ -70,3 +70,26 @@ Leviathan is a beginner-friendly wargame designed to teach basic privilege escal
 Levels 0-6: ✅ Completed 
 
 🖥️ [**Folder Wargame**](https://github.com/Cristian5tarellas/Wargames/tree/main/Leviathan)
+
+-----------------------------------------------------
+
+### 📌 **Natas:**
+
+**Natas** is a web security wargame that introduces players to real-world vulnerabilities commonly found in web applications. Each level requires analysing source code, HTTP headers, cookies, encoding schemes, or server-side logic to find hidden credentials or bypass protections.
+
+***Key Concepts Covered:***
+
+- 🌐 Basic HTML, Forms and URL Parameters  
+- 🔎 Source Code Analysis  
+- 🍪 Cookie Manipulation  
+- 🧠 HTTP Headers (Referer, User-Agent, etc.)  
+- 🧩 Encoding & Decoding (Base64, hex, reverse)  
+- 📂 Directory Traversal and File Inclusion  
+- 💣 Command Injection Techniques  
+
+***Levels:***
+
+Levels 0-9: ✅ Completed  
+Level 10-33: 🚧 In Progress
+
+🖥️ [**Folder Wargame**](https://github.com/Cristian5tarellas/Wargames/tree/main/Natas)
